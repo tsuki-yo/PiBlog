@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on My New Hugo Site</title><link>https://piserverguide.com/posts/</link><description>Recent content in Posts on My New Hugo Site</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 08 Sep 2024 09:01:17 +0000</lastBuildDate><atom:link href="https://piserverguide.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>https://piserverguide.com/posts/my-first-post/</link><pubDate>Sun, 08 Sep 2024 09:01:17 +0000</pubDate><guid>https://piserverguide.com/posts/my-first-post/</guid><description>&lt;div class="flex align-center gblog-post__anchorwrap">
+ &lt;h2 id="introduction"
+ >
+ Introduction
+ &lt;/h2>
+ &lt;a data-clipboard-text="https://piserverguide.com/posts/my-first-post/#introduction" class="gblog-post__anchor clip flex align-center" aria-label="Anchor Introduction" href="#introduction">
+ &lt;svg class="gblog-icon gblog_link">&lt;use xlink:href="#gblog_link">&lt;/use>&lt;/svg>
+ &lt;/a>
+&lt;/div>
+&lt;p>This is &lt;strong>bold&lt;/strong> text, and this is &lt;em>emphasized&lt;/em> text.&lt;/p>
+&lt;p>Visit the &lt;a
+ class="gblog-markdown__link"
+ href="https://gohugo.io"
+>Hugo&lt;/a> website!&lt;/p></description></item></channel></rss>

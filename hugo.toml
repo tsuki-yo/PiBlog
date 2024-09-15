@@ -1,0 +1,10 @@
+baseURL = "https://piserverguide.com/"
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'geekblog'
+
+[sitemap]
+  changeFreq = 'daily'
+  disable = false
+  filename = 'sitemap.xml'
+  priority = -1
