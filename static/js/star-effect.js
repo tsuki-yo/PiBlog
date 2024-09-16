@@ -4,7 +4,9 @@ function createStar() {
     star.classList.add('star');
 
     //Get the height of the header dynamically
-    const headerHeight = header.offsetHeight;
+    const headerRect = header.getBoundingClientRect();
+    const headerHeight = headerRect.height;
+    const headerBottom = headerRect.bottom;
     
     // Randomize the initial position of the star
     star.style.left = `${Math.random() * 100}vw`;
@@ -18,7 +20,7 @@ function createStar() {
 	const starPosition = star.getBoundingClientRect();
 	
         // Remove the star if it exceeds the bottom boundary of the header
-       if (starPosition.top > headerHeight) {
+	if (starPosition.top > headerBottom) {
          star.remove();
          clearInterval(checkInterval);  // Stop checking once the star is removed
        }
@@ -33,4 +35,4 @@ function createStar() {
 }
 
 // Continuously create stars
-setInterval(createStar, 500);
+setInterval(createStar, 700);
