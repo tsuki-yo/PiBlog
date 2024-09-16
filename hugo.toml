@@ -1,6 +1,6 @@
 baseURL = "https://piserverguide.com/"
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Pi Server Guide'
 theme = 'geekblog'
 
 [sitemap]

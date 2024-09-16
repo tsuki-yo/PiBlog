@@ -1,0 +1,82 @@
+/* Apply Raspberry Pi color in light mode */
+:root,
+:root[color-theme="light"] {
+    --header-background: #C51A4A !important; /* Raspberry Pi color */
+}
+
+/* Apply Raspberry Pi color in dark mode */
+:root[color-theme="dark"] {
+    --header-background: #C51A4A !important; /* Raspberry Pi color for dark mode */
+}
+:root {
+    --navbar-background: #96d0e0; /* Define cream color */
+}
+
+.gblog-nav {
+    background-color: var(--navbar-background);
+}
+
+/* Container for stars within the header */
+.star-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+/* Individual star style */
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    animation: shower-stars 6s linear forwards, twinkle 2s infinite ease-in-out;
+    opacity: 0;
+}
+
+/* Keyframes to make the stars shower diagonally */
+@keyframes shower-stars {
+    0% {
+        transform: translate(0,0); /* Start from the current position */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw, 100vh); /* Move diagonally across the screen */
+        opacity: 0;
+    }
+}
+
+@keyframes twinkle {
+    0%,100% {
+	opacity: 1;
+	box-shadow: 0 0 20px 8px white;
+    }
+    50% {
+	opacity: 0.5;
+	box-shadow: 0 0 5px 2px white;
+    }
+}
+
+/* Trail using a pseudo-element with diagonal alignment */
+.star::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -100px;  /* Shift left to create the trail */
+    width: 100px;  /* Make the trail long */
+    height: 2px;   /* Thin trail */
+    
+    /* Use a gradient for the trail */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+
+    /* Fading trail */
+    filter: blur(6px);
+
+    /* Rotate the trail to align diagonally with the star's movement */
+    transform: rotate(45deg); /* Rotate by 45 degrees to match the diagonal */
+}
