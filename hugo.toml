@@ -3,10 +3,6 @@ languageCode = 'en-us'
 title = 'Pi Server Guide'
 theme = 'geekblog'
 
-# Fix for GitHub Pages subpath
-relativeURLs = true
-canonifyURLs = true
-
 [sitemap]
   changeFreq = 'daily'
   disable = false

@@ -1,61 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <generator uri="https://gohugo.io/" version="0.149.1">Hugo</generator>
     <title>Pi Server Guide</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Pi Server Guide</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 16 Sep 2024 04:39:42 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>FifthAttempt</title>
-      <link>http://localhost:1313/posts/pages/fifthattempt/</link>
-      <pubDate>Mon, 16 Sep 2024 04:39:42 +0900</pubDate>
-      <guid>http://localhost:1313/posts/pages/fifthattempt/</guid>
-      <description>&lt;p&gt;The fifth.&#xA;Hello&#xA;Realy&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Forth Post</title>
-      <link>http://localhost:1313/posts/pages/forth-post/</link>
-      <pubDate>Mon, 16 Sep 2024 04:31:11 +0900</pubDate>
-      <guid>http://localhost:1313/posts/pages/forth-post/</guid>
-      <description>&lt;p&gt;This is the forth Post.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The third</title>
-      <link>http://localhost:1313/posts/pages/the-third/</link>
-      <pubDate>Mon, 16 Sep 2024 03:10:14 +0900</pubDate>
-      <guid>http://localhost:1313/posts/pages/the-third/</guid>
-      <description>&lt;p&gt;This is the third&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Second post</title>
-      <link>http://localhost:1313/posts/second-post/</link>
-      <pubDate>Mon, 16 Sep 2024 02:41:14 +0900</pubDate>
-      <guid>http://localhost:1313/posts/second-post/</guid>
-      <description>&lt;p&gt;This is the second Post.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Markdown Reference Guide</title>
-      <link>http://localhost:1313/posts/pages/reference-post/</link>
-      <pubDate>Sun, 15 Sep 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/pages/reference-post/</guid>
-      <description>&lt;h1 id=&#34;markdown-reference-guide&#34;&gt;Markdown Reference Guide&lt;/h1&gt;&#xA;&lt;p&gt;This post demonstrates commonly used &lt;strong&gt;Markdown&lt;/strong&gt; syntax to help you create well-structured blog posts in your &amp;ldquo;Pi Server Guide.&amp;rdquo;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;headings&#34;&gt;Headings&lt;/h2&gt;&#xA;&lt;h1 id=&#34;heading-1&#34;&gt;Heading 1&lt;/h1&gt;&#xA;&lt;h2 id=&#34;heading-2&#34;&gt;Heading 2&lt;/h2&gt;&#xA;&lt;h3 id=&#34;heading-3&#34;&gt;Heading 3&lt;/h3&gt;&#xA;&lt;h4 id=&#34;heading-4&#34;&gt;Heading 4&lt;/h4&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;emphasis&#34;&gt;Emphasis&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;br&gt;&#xA;&lt;strong&gt;Bold&lt;/strong&gt;&lt;br&gt;&#xA;&lt;em&gt;&lt;strong&gt;Bold and Italic&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;blockquotes&#34;&gt;Blockquotes&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;This is a blockquote. Markdown makes it easy to create one with the &lt;code&gt;&amp;gt;&lt;/code&gt; symbol.&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;lists&#34;&gt;Lists&lt;/h2&gt;&#xA;&lt;h3 id=&#34;unordered-list&#34;&gt;Unordered List&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Item 1&lt;/li&gt;&#xA;&lt;li&gt;Item 2&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sub-item 1&lt;/li&gt;&#xA;&lt;li&gt;Sub-item 2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Item 3&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;ordered-list&#34;&gt;Ordered List&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;First item&lt;/li&gt;&#xA;&lt;li&gt;Second item&lt;/li&gt;&#xA;&lt;li&gt;Third item&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;links-and-images&#34;&gt;Links and Images&lt;/h2&gt;&#xA;&lt;h3 id=&#34;link&#34;&gt;Link&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://yourdomain.com&#34;&gt;Visit my Pi Server Guide!&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Sun, 08 Sep 2024 09:01:17 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/posts/pages/images/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/pages/images/</guid>
-      <description>&lt;h3 id=&#34;image-1-raspberry-pi-logo&#34;&gt;Image 1: Raspberry Pi Logo&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://www.raspberrypi.org/app/uploads/2018/03/RPi-Logo-Reg-SCREEN.png&#34; alt=&#34;Raspberry Pi Logo&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;image-2-raspberry-pi-4-model&#34;&gt;Image 2: Raspberry Pi 4 Model&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/8/80/Raspberry_Pi_4_Model_B_-_Top.jpg&#34; alt=&#34;Raspberry Pi 4&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;image-3-hugo-logo&#34;&gt;Image 3: Hugo Logo&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://gohugo.io/images/hugo-logo-wide.svg&#34; alt=&#34;Hugo Logo&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;image-4-caddy-logo&#34;&gt;Image 4: Caddy Logo&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://caddyserver.com/resources/images/caddy-logo.svg&#34; alt=&#34;Caddy Logo&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;image-5-git-logo&#34;&gt;Image 5: Git Logo&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png&#34; alt=&#34;Git Logo&#34;&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+            <link href="https://tsuki-yo.github.io/PiBlog/" rel="alternate" type="text/html" title="html" />
+            <link href="https://tsuki-yo.github.io/PiBlog/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
+    <updated>2025-09-09T09:52:06+09:00</updated>
+    <id>https://tsuki-yo.github.io/PiBlog/</id>
+</feed>

@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <generator uri="https://gohugo.io/" version="0.149.1">Hugo</generator>
     <title>Tags on Pi Server Guide</title>
-    <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on Pi Server Guide</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+            <link href="https://tsuki-yo.github.io/PiBlog/tags/" rel="alternate" type="text/html" title="html" />
+            <link href="https://tsuki-yo.github.io/PiBlog/tags/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
+    <updated>2025-09-09T09:52:06+09:00</updated>
+    <id>https://tsuki-yo.github.io/PiBlog/tags/</id>
+</feed>
