@@ -4,7 +4,7 @@
     <title>Natsuki&#39;s Tech Blog</title>
             <link href="http://localhost:1313/" rel="alternate" type="text/html" title="html" />
             <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
-    <updated>2025-09-09T14:37:33+09:00</updated>
+    <updated>2025-09-09T14:44:29+09:00</updated>
     <id>http://localhost:1313/</id>
         <entry>
             <title>Budget Local Voice Assistant – Raspberry Pi Zero &#43; Qwen3 &#43; Intel Arc A580</title>
@@ -14,15 +14,6 @@
             <updated>2025-09-09T12:00:00+09:00</updated>
             <content type="html">
                 &lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h1 id=&#34;building-my-budget-local-voice-assistant-with-raspberry-pi-zero--qwen3--intel-arc-a580&#34;
-    &gt;
-        Building My Budget Local Voice Assistant with Raspberry Pi Zero &amp;amp; Qwen3 &amp;amp; Intel Arc A580
-    &lt;/h1&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#building-my-budget-local-voice-assistant-with-raspberry-pi-zero--qwen3--intel-arc-a580&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Building My Budget Local Voice Assistant with Raspberry Pi Zero &amp;amp; Qwen3 &amp;amp; Intel Arc A580&#34; href=&#34;#building-my-budget-local-voice-assistant-with-raspberry-pi-zero--qwen3--intel-arc-a580&#34;&gt;
-        &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/div&gt;
-&lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
     &lt;h2 id=&#34;motivation&#34;
     &gt;
         Motivation
@@ -301,11 +292,11 @@
 &lt;/div&gt;
 &lt;p&gt;The outcome was &lt;strong&gt;surprisingly good&lt;/strong&gt;. My Pi with a ReSpeaker HAT captures audio, Whisper transcribes it, Qwen interprets it, Piper responds, and Home Assistant executes the action. All &lt;strong&gt;fully offline&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h2 id=&#34;lessons-learned&#34;
+    &lt;h2 id=&#34;summary&#34;
     &gt;
-        Lessons Learned
+        Summary
     &lt;/h2&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#lessons-learned&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Lessons Learned&#34; href=&#34;#lessons-learned&#34;&gt;
+    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#summary&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Summary&#34; href=&#34;#summary&#34;&gt;
         &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/div&gt;

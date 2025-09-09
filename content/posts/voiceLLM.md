@@ -5,8 +5,6 @@ draft: false
 tags: ["homeassistant", "docker", "ollama", "intel", "localai", "privacy", "selfhosting"]
 ---
 
-# Building My Budget Local Voice Assistant with Raspberry Pi Zero & Qwen3 & Intel Arc A580
-
 ## Motivation  
 If you want Google Assistant voice control in Home Assistant, you usually need a **Nabu Casa subscription**. But I wanted two things:  
 1. **Save money** — no monthly subscription.  
@@ -157,7 +155,7 @@ Now the wake word works, flowing through: **OpenWakeWord → Whisper → Qwen �
 ## The Result  
 The outcome was **surprisingly good**. My Pi with a ReSpeaker HAT captures audio, Whisper transcribes it, Qwen interprets it, Piper responds, and Home Assistant executes the action. All **fully offline**.  
 
-## Lessons Learned  
+## Summary  
 - **Docker Desktop + Compose** → perfect for auto-running Whisper and Piper.  
 - **Task Scheduler + Ollama Portable Zip** → required for Intel Arc GPUs.  
 - **NVIDIA / Apple users** → can just use the Ollama Desktop app.  
