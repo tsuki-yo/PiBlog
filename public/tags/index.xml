@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-    <generator uri="https://gohugo.io/" version="0.149.1">Hugo</generator>
-    <title>Tags on Natsuki&#39;s Tech Blog</title>
-            <link href="http://localhost:1313/tags/" rel="alternate" type="text/html" title="html" />
-            <link href="http://localhost:1313/tags/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
-    <updated>2025-09-09T10:51:32+09:00</updated>
-    <id>http://localhost:1313/tags/</id>
-</feed>
