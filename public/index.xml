@@ -4,7 +4,7 @@
     <title>Natsuki&#39;s Tech Blog</title>
             <link href="http://localhost:1313/" rel="alternate" type="text/html" title="html" />
             <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
-    <updated>2025-09-09T14:44:29+09:00</updated>
+    <updated>2025-09-09T14:48:20+09:00</updated>
     <id>http://localhost:1313/</id>
         <entry>
             <title>Budget Local Voice Assistant – Raspberry Pi Zero &#43; Qwen3 &#43; Intel Arc A580</title>
@@ -26,6 +26,7 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Save money&lt;/strong&gt; — no monthly subscription.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Keep my privacy&lt;/strong&gt; — no smart-home data leaving my LAN.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Utilize my unused gaming PC&lt;/strong&gt; — put my Intel Arc A580 GPU to work.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;So I built my own &lt;strong&gt;fully local voice assistant&lt;/strong&gt; — offline, GPU-accelerated, and integrated with Home Assistant.&lt;/p&gt;
 &lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;

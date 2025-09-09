@@ -9,6 +9,7 @@ tags: ["homeassistant", "docker", "ollama", "intel", "localai", "privacy", "self
 If you want Google Assistant voice control in Home Assistant, you usually need a **Nabu Casa subscription**. But I wanted two things:  
 1. **Save money** — no monthly subscription.  
 2. **Keep my privacy** — no smart-home data leaving my LAN.  
+3. **Utilize my unused gaming PC** — put my Intel Arc A580 GPU to work.  
 
 So I built my own **fully local voice assistant** — offline, GPU-accelerated, and integrated with Home Assistant.  
 
