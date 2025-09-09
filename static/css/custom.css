@@ -82,3 +82,26 @@
     /* Rotate the trail to align diagonally with the star's movement */
     transform: rotate(45deg); /* Rotate by 45 degrees to match the diagonal */
 }
+
+/* Dotted line colors for post separators */
+:root[color-theme="light"] .gblog-post {
+    border-top-color: black !important;
+}
+
+:root[color-theme="dark"] .gblog-post {
+    border-top-color: white !important;
+}
+
+/* Auto mode - when no color-theme attribute is set */
+@media (prefers-color-scheme: light) {
+    :root:not([color-theme]) .gblog-post {
+        border-top-color: black !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([color-theme]) .gblog-post {
+        border-top-color: white !important;
+    }
+}
+
