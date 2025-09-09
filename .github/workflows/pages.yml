@@ -25,6 +25,15 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Build theme assets
+        run: |
+          cd themes/geekblog
+          npm install
+          npm run build
+          cd ../..
       - run: hugo --minify
       - uses: actions/upload-pages-artifact@v3
         with:
