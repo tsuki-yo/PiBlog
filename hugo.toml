@@ -1,6 +1,6 @@
 baseURL = "https://blog.natsuki-cloud.dev/"
 languageCode = 'en-us'
-title = 'Pi Server Guide'
+title = "Natsuki's Tech Blog"
 theme = 'geekblog'
 
 [sitemap]
