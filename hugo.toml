@@ -1,4 +1,4 @@
-baseURL = "https://tsuki-yo.github.io/PiBlog/"
+baseURL = "https://blog.natsuki-cloud.dev/"
 languageCode = 'en-us'
 title = 'Pi Server Guide'
 theme = 'geekblog'
