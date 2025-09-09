@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <generator uri="https://gohugo.io/" version="0.149.1">Hugo</generator>
-    <title>Natsuki&#39;s Tech Blog</title>
-            <link href="http://localhost:1313/" rel="alternate" type="text/html" title="html" />
-            <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
-    <updated>2025-09-09T14:37:33+09:00</updated>
-    <id>http://localhost:1313/</id>
+    <title>Homeassistant on Natsuki&#39;s Tech Blog</title>
+            <link href="http://localhost:1313/tags/homeassistant/" rel="alternate" type="text/html" title="html" />
+            <link href="http://localhost:1313/tags/homeassistant/index.xml" rel="alternate" type="application/rss+xml" title="rss" />
+    <updated>2025-09-09T13:57:30+09:00</updated>
+    <id>http://localhost:1313/tags/homeassistant/</id>
         <entry>
-            <title>Budget Local Voice Assistant – Raspberry Pi Zero &#43; Qwen3 &#43; Intel Arc A580</title>
+            <title>Local Voice Assistant – Docker &#43; Ollama &#43; Intel Arc</title>
             <link href="http://localhost:1313/posts/voicellm/" rel="alternate" type="text/html"  hreflang="en" />
             <id>http://localhost:1313/posts/voicellm/</id>
             <published>2025-09-09T12:00:00+09:00</published>
             <updated>2025-09-09T12:00:00+09:00</updated>
             <content type="html">
                 &lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h1 id=&#34;building-my-budget-local-voice-assistant-with-raspberry-pi-zero--qwen3--intel-arc-a580&#34;
+    &lt;h1 id=&#34;building-my-local-voice-assistant-with-raspberry-pi--local-llms&#34;
     &gt;
-        Building My Budget Local Voice Assistant with Raspberry Pi Zero &amp;amp; Qwen3 &amp;amp; Intel Arc A580
+        Building My Local Voice Assistant with Raspberry Pi &amp;amp; Local LLMs
     &lt;/h1&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#building-my-budget-local-voice-assistant-with-raspberry-pi-zero--qwen3--intel-arc-a580&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Building My Budget Local Voice Assistant with Raspberry Pi Zero &amp;amp; Qwen3 &amp;amp; Intel Arc A580&#34; href=&#34;#building-my-budget-local-voice-assistant-with-raspberry-pi-zero--qwen3--intel-arc-a580&#34;&gt;
+    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#building-my-local-voice-assistant-with-raspberry-pi--local-llms&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Building My Local Voice Assistant with Raspberry Pi &amp;amp; Local LLMs&#34; href=&#34;#building-my-local-voice-assistant-with-raspberry-pi--local-llms&#34;&gt;
         &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/div&gt;
@@ -218,57 +218,11 @@
 &lt;/div&gt;
 &lt;p&gt;If you’re on &lt;strong&gt;NVIDIA GPU&lt;/strong&gt; or &lt;strong&gt;Apple Silicon&lt;/strong&gt;, you don’t need this setup. Just install the official &lt;strong&gt;Ollama Desktop app&lt;/strong&gt;, which supports GPU acceleration and auto-starts automatically.&lt;/p&gt;
 &lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h2 id=&#34;integrating-with-home-assistant&#34;
+    &lt;h2 id=&#34;instruction-prompt-for-qwen&#34;
     &gt;
-        Integrating with Home Assistant
+        Instruction Prompt for Qwen
     &lt;/h2&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#integrating-with-home-assistant&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Integrating with Home Assistant&#34; href=&#34;#integrating-with-home-assistant&#34;&gt;
-        &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/div&gt;
-&lt;p&gt;To connect all endpoints into Home Assistant, there are &lt;strong&gt;two steps&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h3 id=&#34;1-register-wyoming-protocol-services&#34;
-    &gt;
-        1. Register Wyoming Protocol Services
-    &lt;/h3&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#1-register-wyoming-protocol-services&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor 1. Register Wyoming Protocol Services&#34; href=&#34;#1-register-wyoming-protocol-services&#34;&gt;
-        &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/div&gt;
-&lt;p&gt;Go to &lt;strong&gt;Settings → Devices &amp;amp; Services → Add Integration → Wyoming Protocol&lt;/strong&gt;. Add each endpoint as a service:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Whisper (STT):&lt;/strong&gt; &lt;code&gt;tcp://&amp;lt;PC_IP&amp;gt;:10300&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Piper (TTS):&lt;/strong&gt; &lt;code&gt;tcp://&amp;lt;PC_IP&amp;gt;:10200&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;(Optional) &lt;strong&gt;Pi Satellite:&lt;/strong&gt; &lt;code&gt;tcp://&amp;lt;pi-ip&amp;gt;:10700&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(Home Assistant has OpenWakeWord available as an &lt;strong&gt;Add-on&lt;/strong&gt;, which instantly provides wake word detection support without extra setup.)&lt;/p&gt;
-&lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h3 id=&#34;2-create-a-voice-assistant&#34;
-    &gt;
-        2. Create a Voice Assistant
-    &lt;/h3&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#2-create-a-voice-assistant&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor 2. Create a Voice Assistant&#34; href=&#34;#2-create-a-voice-assistant&#34;&gt;
-        &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/div&gt;
-&lt;p&gt;Go to &lt;strong&gt;Settings → Voice Assistants&lt;/strong&gt; and create a new assistant:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Wake Word:&lt;/strong&gt; Select the OpenWakeWord add-on and the wake word.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Speech-to-Text (STT):&lt;/strong&gt; Select the Whisper service.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Text-to-Speech (TTS):&lt;/strong&gt; Select the Piper service.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Conversation Agent (LLM):&lt;/strong&gt; Select the Ollama service, model: &lt;code&gt;qwen:4b-instruct&lt;/code&gt;.
-&lt;ul&gt;
-&lt;li&gt;This is where you paste the &lt;strong&gt;instruction prompt&lt;/strong&gt; for Qwen.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h3 id=&#34;instruction-prompt-for-voice-assistant-settings-on-home-assistant&#34;
-    &gt;
-        Instruction Prompt for Voice Assistant Settings on Home Assistant.
-    &lt;/h3&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#instruction-prompt-for-voice-assistant-settings-on-home-assistant&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Instruction Prompt for Voice Assistant Settings on Home Assistant.&#34; href=&#34;#instruction-prompt-for-voice-assistant-settings-on-home-assistant&#34;&gt;
+    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#instruction-prompt-for-qwen&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Instruction Prompt for Qwen&#34; href=&#34;#instruction-prompt-for-qwen&#34;&gt;
         &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/div&gt;
@@ -289,8 +243,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Always respond in plain text only, no controlling characters, no emoji.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NEVER use emoji or any non-alphanumeric characters.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Keep the answer simple and to the point.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the wake word works, flowing through: &lt;strong&gt;OpenWakeWord → Whisper → Qwen → Piper → Home Assistant&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
     &lt;h2 id=&#34;the-result&#34;
     &gt;
         The Result
@@ -301,18 +254,17 @@
 &lt;/div&gt;
 &lt;p&gt;The outcome was &lt;strong&gt;surprisingly good&lt;/strong&gt;. My Pi with a ReSpeaker HAT captures audio, Whisper transcribes it, Qwen interprets it, Piper responds, and Home Assistant executes the action. All &lt;strong&gt;fully offline&lt;/strong&gt;.&lt;/p&gt;
 &lt;div class=&#34;flex align-center gblog-post__anchorwrap&#34;&gt;
-    &lt;h2 id=&#34;lessons-learned&#34;
+    &lt;h2 id=&#34;summary&#34;
     &gt;
-        Lessons Learned
+        Summary
     &lt;/h2&gt;
-    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#lessons-learned&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Lessons Learned&#34; href=&#34;#lessons-learned&#34;&gt;
+    &lt;a data-clipboard-text=&#34;http://localhost:1313/posts/voicellm/#summary&#34; class=&#34;gblog-post__anchor clip flex align-center&#34; aria-label=&#34;Anchor Summary&#34; href=&#34;#summary&#34;&gt;
         &lt;svg class=&#34;gblog-icon gblog_link&#34;&gt;&lt;use xlink:href=&#34;#gblog_link&#34;&gt;&lt;/use&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Docker Desktop + Compose&lt;/strong&gt; → perfect for auto-running Whisper and Piper.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Task Scheduler + Ollama Portable Zip&lt;/strong&gt; → required for Intel Arc GPUs.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NVIDIA / Apple users&lt;/strong&gt; → can just use the Ollama Desktop app.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;IPEX-LLM on Arc A580&lt;/strong&gt; → makes Qwen 3-4B fast enough for real-time use.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Custom prompt&lt;/strong&gt; → essential to keep responses clean and actionable.&lt;/li&gt;
 &lt;/ul&gt;
