@@ -1,0 +1,18 @@
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+<!-- Custom JavaScript -->
+<script defer src="{{ "js/star-effect.js" | relURL }}"></script>
+
+<!-- Star container initialization -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.gblog-header');
+    if (header && !header.querySelector('.star-container')) {
+        const starContainer = document.createElement('div');
+        starContainer.classList.add('star-container');
+        header.style.position = 'relative';
+        header.appendChild(starContainer);
+    }
+});
+</script>
