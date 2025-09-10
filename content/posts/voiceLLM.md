@@ -1,8 +1,8 @@
 ---
-title: "Budget Local Voice Assistant – Raspberry Pi Zero + Qwen3 + Intel Arc A580"
+title: "Automated Budget Local LLM Home Assistant Voice Assistant (No Cloud)"
 date: 2025-09-09T12:00:00+09:00
 draft: false
-tags: ["homeassistant", "docker", "ollama", "intel", "localai", "privacy", "selfhosting"]
+tags: ["homeassistant", "selfhosting", "voiceassistant", "localai", "intel", "privacy"]
 ---
 
 ## Motivation  
@@ -14,7 +14,7 @@ If you want Google Assistant voice control in Home Assistant, you usually need a
 So I built my own **fully local voice assistant** — offline, GPU-accelerated, and integrated with Home Assistant.  
 
 ## Inspiration  
-This idea was inspired by [NetworkChuck’s video](https://www.youtube.com/watch?v=XvbVePuP7NY). He showed how to run a Pi satellite with systemd. I extended the idea into a cross-platform setup powered by Docker and Ollama.  
+This idea was inspired by [NetworkChuck’s video](https://www.youtube.com/watch?v=XvbVePuP7NY). He showed how to run a Pi satellite with systemd. I extended the idea into a automated setup powered by Docker Desktop and Task Scheduler.  
 
 ## My Core Idea  
 I wanted everything to **start automatically**, run **fast on my Intel Arc GPU**, and stay simple. My setup is built on five pillars:  
