@@ -57,7 +57,7 @@ services:
       - "10300:10300"
     volumes:
       - ~/whisperdata:/data
-    command: ["--model", "small-int8", "--language", "en", "--threads", "4"]
+    command: ["--model", "small-int8", "--language", "en"]
     restart: unless-stopped
 
   wyoming-piper:
