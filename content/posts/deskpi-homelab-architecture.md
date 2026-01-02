@@ -94,7 +94,7 @@ graph TB
 
 ![DeskPi 12U Rack](/images/PXL_20251205_053427791.MP~2.jpg)
 
-The DeskPi 12U rack is the physical foundation. It's visually pleasant and keeps dust at bay - a huge improvement over the open TV rack.
+The DeskPi 12U rack is the physical foundation. It's visually pleasant and prevents dust buildup - a huge improvement over the open TV rack.
 
 ### Power Management and Cooling
 
