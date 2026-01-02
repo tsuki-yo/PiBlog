@@ -27,10 +27,14 @@ Living in a 10 sqm studio apartment in Tokyo, space is extremely limited. Every 
 
 My homelab started simple: a metal rack with a Raspberry Pi 4 and a hard disk running Samba NAS. As my needs grew, so did the setup.
 
+![Initial metal rack setup](/images/metal_rack_server.jpg)
+
 I moved to a TV rack as services expanded - Home Assistant, monitoring, Docker services. It worked, but:
 - Cluttered mess of cables
 - Ate up precious floor space
 - Collected dust like crazy
+
+![TV rack server setup](/images/TV_rack_server.jpg)
 
 The solution? Graduating to a DeskPi 12U rack - vertical consolidation for small spaces, cleaner look, and better dust management.
 
