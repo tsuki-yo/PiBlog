@@ -47,7 +47,7 @@ graph TB
     end
 
     subgraph Remote Access
-        Mobile[Mobile Devices<br/>via Port Forwarding]
+        Mobile[Mobile Devices<br/>via WireGuard VPN]
     end
 
     subgraph Network Layer
