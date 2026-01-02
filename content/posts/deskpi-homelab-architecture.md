@@ -222,11 +222,11 @@ Building this setup taught me a few things:
 
 - **Go vertical with an enclosed rack** - Saves floor space and keeps dust out. The DeskPi 12U rack was a game-changer compared to the open TV rack.
 - **Use PoE where possible** - Fewer power adapters, fewer cables, cleaner setup. The managed switch powers both Pis.
-- **Repurpose what you have** - The 650W TUF Gaming PSU from my old PC now powers the whole rack.
+- **Repurpose what you have** - The 650W TUF Gaming PSU from my old PC now powers the N305 PC.
 - **Hardware transcoding matters** - The N305's Intel Quick Sync handles Jellyfin effortlessly. Choose your hardware with your workloads in mind.
 - **Take your time** - Perfecting the setup took a few days. The DeskPi's flexibility with parts and accessories makes it worth the effort.
 
-If you've built a PC before, you can build a homelab. The skills transfer well.
+The rack assembly isn't more complex than building a PC - just more of them. If you can do one, you can do this.
 
 ---
 
