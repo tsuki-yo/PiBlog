@@ -2,21 +2,7 @@
 <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 
 <!-- Custom JavaScript -->
-<script defer src="{{ "js/star-effect.js" | relURL }}"></script>
 <script defer src="{{ "js/navbar.js" | relURL }}"></script>
 
 <!-- Plausible Analytics -->
 <script defer data-domain="blog.natsuki-cloud.dev" src="https://analytics.appproxy.org/js/script.js"></script>
-
-<!-- Star container initialization -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.gblog-header');
-    if (header && !header.querySelector('.star-container')) {
-        const starContainer = document.createElement('div');
-        starContainer.classList.add('star-container');
-        header.style.position = 'relative';
-        header.appendChild(starContainer);
-    }
-});
-</script>
