@@ -5,7 +5,7 @@
     <div class="gblog-header__col-2 flex align-center justify-center ">
       <a class="gblog-header__link" rel="me" href="{{ .Site.Home.Permalink }}">
         <span class="gblog-brand flex align-center justify-center">
-          <span class="gblog-brand__emoji">🔧</span>
+          <span class="gblog-brand__emoji">🌐</span>
           <span class="gblog-brand__title">{{ .Site.Title }}</span>
         </span>
         {{ with .Site.Params.subtitle }}
@@ -14,11 +14,6 @@
       </a>
     </div>
     <div class="gblog-header__col-3 flex justify-end align-center">
-      <span id="gblog-color-theme">
-        <span class="gblog-icon gblog_brightness_dark" title="{{ i18n "button_toggle_dark" }}">🌙</span>
-        <span class="gblog-icon gblog_brightness_light" title="{{ i18n "button_toggle_dark" }}">☀️</span>
-        <span class="gblog-icon gblog_brightness_auto" title="{{ i18n "button_toggle_dark" }}">🌓</span>
-      </span>
     </div>
   </div>
 </header>
@@ -48,10 +43,17 @@
     </form>
   </div>
 
-  <!-- Right: Tag Button -->
-  <button class="gblog-nav__tag-btn" id="tag-menu-btn" aria-expanded="false" aria-haspopup="true" aria-label="Browse tags">
-    <span class="gblog-nav__tag-icon">#</span>
-  </button>
+  <!-- Right: Theme Toggle & Tag Button -->
+  <div class="gblog-nav__right flex align-center">
+    <span id="gblog-color-theme" class="gblog-nav__theme-btn">
+      <span class="gblog-icon gblog_brightness_dark" title="{{ i18n "button_toggle_dark" }}">🌙</span>
+      <span class="gblog-icon gblog_brightness_light" title="{{ i18n "button_toggle_dark" }}">☀️</span>
+      <span class="gblog-icon gblog_brightness_auto" title="{{ i18n "button_toggle_dark" }}">🌓</span>
+    </span>
+    <button class="gblog-nav__tag-btn" id="tag-menu-btn" aria-expanded="false" aria-haspopup="true" aria-label="Browse tags">
+      <span class="gblog-nav__tag-icon">#</span>
+    </button>
+  </div>
 
   <!-- Tag Menu Dropdown -->
   <div class="gblog-tag-menu" id="tag-menu" role="menu" aria-hidden="true">

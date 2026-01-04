@@ -12,26 +12,45 @@
 
 /* Brand emoji styling */
 .gblog-brand__emoji {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
 }
 
-/* Theme toggle emoji styling - transparent like other buttons */
+/* Theme toggle - same style as other navbar buttons */
 #gblog-color-theme {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
     border-radius: 8px;
     cursor: pointer;
+    color: #2c3e50;
     transition: background 0.2s ease;
 }
 
 #gblog-color-theme:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+#gblog-color-theme:focus {
+    outline: none;
+}
+
+#gblog-color-theme:focus-visible {
+    outline: 2px solid #C51A4A;
+    outline-offset: 2px;
+}
+
+/* Right side container for theme toggle and tag button */
+.gblog-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 #gblog-color-theme .gblog-icon {
@@ -367,17 +386,9 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
         margin-right: 0.5rem !important;
     }
 
-    #gblog-color-theme {
-        width: 2rem !important;
-        height: 2rem !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
     .gblog-brand__img,
     .gblog-brand__emoji {
-        font-size: 1.5rem !important;
+        font-size: 1.3rem !important;
         line-height: 1 !important;
     }
 
@@ -395,15 +406,6 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
     .gblog-post:first-child {
         margin-top: 0 !important;
         padding-top: 0.5rem !important;
-    }
-
-    /* Theme toggle icons - don't override display, let visibility rules handle it */
-    #gblog-color-theme .gblog-icon {
-        position: static !important;
-        transform: none !important;
-        font-size: 1rem !important;
-        align-items: center !important;
-        justify-content: center !important;
     }
 
     .gblog-nav {
@@ -461,22 +463,18 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
         font-size: 1rem;
     }
 
-    /* Ensure dark mode toggle is visible and clickable on mobile */
-    .gblog-header__col-3 {
-        display: flex !important;
-        z-index: 10;
-    }
-
+    /* Theme toggle in navbar on mobile - same size as other buttons */
     #gblog-color-theme {
-        display: flex !important;
-        cursor: pointer;
-        padding: 0.5rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     #gblog-color-theme .gblog-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        /* display is controlled by visibility rules above - don't override */
+        font-size: 1rem;
+    }
+
+    .gblog-nav__right {
+        gap: 0.25rem;
     }
 
     /* Social icons with transparent background like # button */
