@@ -309,13 +309,51 @@
         height: 1.5rem;
     }
 
+    /* Social icons black on mobile */
+    .gblog-nav__social a {
+        color: #000000 !important;
+    }
+
+    .gblog-nav__social .gblog-icon {
+        fill: #000000 !important;
+    }
+
+    /* Search bar white background on mobile */
+    .gblog-search__input {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    .gblog-search__input::placeholder {
+        color: #666666 !important;
+    }
+
     /* Ensure stars are white on mobile */
     .star {
-        background-color: white !important;
+        background-color: #ffffff !important;
+        color: #ffffff !important;
     }
 
     .star::before {
         background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) !important;
+    }
+
+    /* Ensure star container doesn't inherit any color filters */
+    .star-container,
+    .star-container .star {
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+
+    /* Fix light/dark mode backgrounds on mobile */
+    :root[color-theme="light"] body,
+    :root[color-theme="light"] .wrapper {
+        background-color: #ffffff !important;
+    }
+
+    :root[color-theme="dark"] body,
+    :root[color-theme="dark"] .wrapper {
+        background-color: #1a1a2e !important;
     }
 }
 
