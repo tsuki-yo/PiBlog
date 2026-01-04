@@ -129,6 +129,7 @@
         justify-content: space-between;
         padding: 0.5rem 1rem;
         position: relative;
+        flex-wrap: wrap;
     }
 
     .gblog-nav__social {
@@ -140,13 +141,17 @@
     .gblog-nav__control {
         order: 2;
         flex: 0 0 auto;
-        display: block !important;
+        display: flex !important;
         position: static;
+        margin-left: auto;
     }
 
     .gblog-nav__control label {
         padding: 0.5rem !important;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .gblog-nav__control svg.gblog-icon {
@@ -155,12 +160,18 @@
     }
 
     .gblog-nav__control span {
-        display: none;
+        display: inline !important;
+        font-size: 0.9rem;
     }
 
     .gblog-nav__list {
         order: 3;
         width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 100;
     }
 
     /* Fix footer items to display inline instead of stacked */
