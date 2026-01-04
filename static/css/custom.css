@@ -69,16 +69,29 @@
 
 .gblog-search__toggle {
     display: none;
-    background: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: rgba(0, 0, 0, 0.1);
     border: none;
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
     cursor: pointer;
     color: #2c3e50;
+    font-size: 0.85rem;
+}
+
+.gblog-search__toggle:hover {
+    background: rgba(0, 0, 0, 0.15);
 }
 
 .gblog-search__toggle .gblog-icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.gblog-search__toggle-text {
+    display: none;
 }
 
 .gblog-search__input {
@@ -228,39 +241,27 @@
 .gblog-tag-menu__tags .gblog-tag-pill:nth-child(6n+6) { background: #1abc9c; }
 
 /* =============================================
-   MOBILE RESPONSIVE - Search expands on tap
+   MOBILE RESPONSIVE
    ============================================= */
 @media screen and (max-width: 39rem) {
-    .gblog-nav__search {
-        flex: 0 0 auto;
+    .gblog-nav {
+        gap: 0.5rem;
     }
 
+    .gblog-nav__search {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Hide toggle button, show input directly */
     .gblog-search__toggle {
-        display: flex;
+        display: none !important;
     }
 
     .gblog-search__input {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
         width: 100%;
-        max-width: none;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        padding: 0.75rem 1rem;
-        background: #7fc4d6;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    }
-
-    .gblog-nav__search.is-expanded .gblog-search__input {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+        padding: 0.4rem 0.75rem;
+        font-size: 0.85rem;
     }
 
     .gblog-tag-menu {
@@ -280,6 +281,41 @@
 
     .gblog-nav__social {
         gap: 0.5rem;
+    }
+
+    .gblog-nav__tag-btn {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .gblog-nav__tag-icon {
+        font-size: 1rem;
+    }
+
+    /* Ensure dark mode toggle is visible and clickable on mobile */
+    .gblog-header__col-3 {
+        display: flex !important;
+        z-index: 10;
+    }
+
+    #gblog-color-theme {
+        display: flex !important;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    #gblog-color-theme .gblog-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    /* Ensure stars are white on mobile */
+    .star {
+        background-color: white !important;
+    }
+
+    .star::before {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) !important;
     }
 }
 
@@ -474,16 +510,26 @@
    SINGLE POST PAGE - Horizontal Metadata
    ============================================= */
 
-.gblog-post__meta--head {
+.gblog-post__header .gblog-post__meta.gblog-post__meta--head {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
+    flex-wrap: wrap !important;
+    gap: 0.5rem 1rem;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .gblog-post__meta--head > span {
+    display: inline-flex !important;
     flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.gblog-post__meta--head .gblog-post__meta--tag,
+.gblog-post__meta--head .gblog-post__meta--update,
+.gblog-post__meta--head .gblog-post__meta--readtime,
+.gblog-post__meta--head .gblog-post__meta--author {
+    margin: 0 !important;
 }
 
 /* =============================================
