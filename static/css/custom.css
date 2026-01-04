@@ -17,21 +17,21 @@
     margin-right: 0.5rem;
 }
 
-/* Theme toggle emoji styling */
+/* Theme toggle emoji styling - transparent like other buttons */
 #gblog-color-theme {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    background: rgba(255, 255, 255, 0.3);
+    background: transparent;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.2s ease;
 }
 
 #gblog-color-theme:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 #gblog-color-theme .gblog-icon {
@@ -102,11 +102,14 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
     fill: currentColor;
 }
 
-/* Search - Center */
+/* Search - Center (truly centered using absolute positioning) */
 .gblog-nav__search {
-    flex: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    width: 100%;
     max-width: 400px;
 }
 
@@ -185,6 +188,10 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
 }
 
 .gblog-nav__tag-btn:focus {
+    outline: none;
+}
+
+.gblog-nav__tag-btn:focus-visible {
     outline: 2px solid #C51A4A;
     outline-offset: 2px;
 }
@@ -278,8 +285,9 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
     transform: translateY(-1px);
 }
 
+/* Active tag pill - no encircling, just subtle highlight */
 .gblog-tag-pill.is-active {
-    box-shadow: 0 0 0 2px var(--body-background), 0 0 0 4px currentColor;
+    filter: brightness(1.2);
 }
 
 /* Tag colors cycling */
@@ -402,7 +410,14 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
         gap: 0.5rem;
     }
 
+    /* Social icons left aligned on mobile */
+    .gblog-nav__social {
+        justify-content: flex-start !important;
+    }
+
     .gblog-nav__search {
+        position: static;
+        transform: none;
         flex: 1;
         min-width: 0;
     }
@@ -486,7 +501,7 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
         height: 1rem;
     }
 
-    /* Search bar white background on mobile */
+    /* Search bar always white on mobile */
     .gblog-search__input {
         background: #ffffff !important;
         color: #000000 !important;
