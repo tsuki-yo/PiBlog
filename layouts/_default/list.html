@@ -1,0 +1,61 @@
+{{ define "main" }}
+  {{ $pages := where .RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{ if (eq .Kind "home") }}
+    {{ $pages = where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{ end }}
+
+  {{ $paginator := .Paginate $pages }}
+  {{ range $paginator.Pages }}
+    <article class="gblog-post {{ if .Params.cover_image }}has-cover{{ end }}">
+      <div class="gblog-post__wrapper">
+        {{ with .Params.cover_image }}
+          <a href="{{ $.RelPermalink }}" class="gblog-post__cover">
+            <img src="{{ . }}" alt="{{ partial "utils/title" $ }}" loading="lazy" />
+          </a>
+        {{ end }}
+
+        <div class="gblog-post__content">
+          <header class="gblog-post__header">
+            <div class="flex align-center flex-wrap" style="gap: 0.75rem; justify-content: space-between;">
+              <h1 class="gblog-post__title" style="margin: 0;">
+                <a href="{{ .RelPermalink }}">{{ partial "utils/title" . }}</a>
+              </h1>
+              {{ if and (not .Params.cover_image) .Params.tags }}
+                <div class="flex align-center flex-wrap" style="gap: 0.5rem;">
+                  {{ range first 3 .Params.tags }}
+                    {{ $name := . }}
+                    {{ with $.Site.GetPage (printf "/tags/%s" $name | urlize) }}
+                      <span class="flex align-center no-wrap gblog-post__meta--tag">
+                        <svg class="gblog-icon gblog_bookmark"><use xlink:href="#gblog_bookmark"></use></svg>
+                        <span class="gblog-post__tag gblog-button gblog-button--regular">
+                          <a
+                            class="gblog-button__link"
+                            href="{{ .RelPermalink }}"
+                            title="All posts tagged with '{{ $name }}'"
+                          >
+                            {{ $name }}
+                          </a>
+                        </span>
+                      </span>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </header>
+
+          <section class="gblog-markdown gblog-post__summary">
+            {{ with .Description }}{{ . | truncate 300 }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 300 }}{{ end }} <a href="{{ .RelPermalink }}" class="gblog-post__readmore-inline">Read full post</a>
+          </section>
+
+          <footer class="gblog-post__footer">
+            <div class="flex flex-wrap align-center gblog-post__meta">
+              {{ partial "metadata.html" . }}
+            </div>
+          </footer>
+        </div>
+      </div>
+    </article>
+  {{ end }}
+  {{ partial "pagination.html" . }}
+{{ end }}

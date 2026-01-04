@@ -115,8 +115,97 @@
     display: none !important;
 }
 
+/* Guardian-style layout: cover image on left, content on right */
+.gblog-post.has-cover .gblog-post__wrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.gblog-post__cover {
+    flex: 0 0 200px;
+    width: 200px;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gblog-post__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.gblog-post__cover:hover img {
+    transform: scale(1.05);
+}
+
+.gblog-post.has-cover .gblog-post__content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gblog-post.has-cover .gblog-post__footer {
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+/* Short summary for article list */
+.gblog-post__summary {
+    font-size: 1rem;
+    color: var(--body-font-color);
+    opacity: 0.85;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.gblog-post__readmore-inline {
+    color: var(--link-color);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Article title with tags layout */
+.gblog-post__header .gblog-post__title {
+    flex: 1 1 auto;
+}
+
+.gblog-post__header .gblog-post__meta--tag {
+    font-size: 0.85rem;
+}
+
 /* Mobile responsive fixes */
 @media screen and (max-width: 39rem) {
+    /* Stack cover image and content vertically on mobile */
+    .gblog-post.has-cover .gblog-post__wrapper {
+        flex-direction: column;
+    }
+
+    .gblog-post__cover {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 200px;
+    }
+
+    .gblog-post__cover img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Stack title and tags on mobile */
+    .gblog-post__header > div {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .gblog-post__header .gblog-post__meta--tag {
+        font-size: 0.75rem;
+    }
     /* Show mobile-only elements */
     .hidden-desktop {
         display: flex !important;
@@ -172,6 +261,19 @@
         left: 0;
         right: 0;
         z-index: 100;
+        flex-direction: column !important;
+        background: var(--navbar-background);
+    }
+
+    .gblog-nav__list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .gblog-nav__entry {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     /* Fix footer items to display inline instead of stacked */

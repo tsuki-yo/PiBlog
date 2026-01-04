@@ -3,13 +3,15 @@ title: "Automated Budget Local LLM Home Assistant Voice Assistant (No Cloud)"
 date: 2025-09-09T12:00:00+09:00
 draft: false
 tags: ["homeassistant", "selfhosting", "voiceassistant", "localai", "intel", "privacy"]
+cover_image: "/images/wyoming satellite.jpg"
+description: "Build a fully local voice assistant with Home Assistant — no cloud, no subscription, no monthly fees. GPU-accelerated with Intel Arc A580, completely offline and private. Save money, keep your smart-home data on your LAN, and put your unused gaming PC to work. This guide shows how I built an automated, budget-friendly local LLM voice assistant."
 ---
 
-## Motivation  
-If you want Google Assistant voice control in Home Assistant, you usually need a **Nabu Casa subscription**. But I wanted two things:  
-1. **Save money** — no monthly subscription.  
-2. **Keep my privacy** — no smart-home data leaving my LAN.  
-3. **Utilize my unused gaming PC** — put my Intel Arc A580 GPU to work.  
+## TL;DR
+If you want Google Assistant voice control in Home Assistant, you usually need a **Nabu Casa subscription**. But I wanted:
+1. **Save money** — no monthly subscription.
+2. **Keep my privacy** — no smart-home data leaving my LAN.
+3. **Utilize my unused gaming PC** — put my Intel Arc A580 GPU to work.
 
 So I built my own **fully local voice assistant** — offline, GPU-accelerated, and integrated with Home Assistant.  
 

@@ -3,6 +3,8 @@ title = 'Small But Mighty Homelab: DeskPi 12U Running 20+ Services'
 date = 2026-01-02T14:56:44+09:00
 draft = false
 tags = ["Docker", "Raspberry Pi", "Linux", "Homelab"]
+cover_image = "/images/DeskPi_server.jpg"
+description = "You don't need a server room to run a powerful homelab. With just a few host machines — a couple of Raspberry Pis, a mini PC, and a Jetson — you can run 20+ services: media streaming, photo backup, password management, smart home automation, monitoring, and even a local AI voice assistant. All in a compact, elegant setup that fits in a corner of a tiny apartment. This post walks through my homelab architecture — how I got here, how it's organized, and what it can do."
 +++
 
 ## TL;DR
