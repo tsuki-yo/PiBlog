@@ -1,6 +1,16 @@
 <header class="gblog-header">
   <div class="container flex flex-wrap">
-    <div class="gblog-header__col-1 flex justify-start hidden-mobile"></div>
+    <div class="gblog-header__col-1 flex justify-start hidden-mobile">
+      {{ if .Site.Data.menu.extra.header }}
+        <div class="gblog-header__social flex align-center" style="gap: 0.75rem;">
+          {{ range .Site.Data.menu.extra.header }}
+            <a href="{{ .ref }}" {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }} title="{{ .name }}" style="display: flex; align-items: center; color: inherit;">
+              <svg class="gblog-icon {{ .icon }}" style="width: 2rem; height: 2rem; fill: currentColor;"><use xlink:href="#{{ .icon }}"></use></svg>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
     <div class="gblog-header__col-2 flex align-center justify-center ">
       <a class="gblog-header__link" rel="me" href="{{ .Site.Home.Permalink }}">
         <span class="gblog-brand flex align-center justify-center">
@@ -17,15 +27,6 @@
       </a>
     </div>
     <div class="gblog-header__col-3 flex justify-end align-center">
-      {{ if .Site.Data.menu.extra.header }}
-        <div class="gblog-header__social flex align-center" style="gap: 0.75rem; margin-right: 1rem;">
-          {{ range .Site.Data.menu.extra.header }}
-            <a href="{{ .ref }}" {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }} title="{{ .name }}" style="display: flex; align-items: center;">
-              <svg class="gblog-icon {{ .icon }}" style="width: 2rem; height: 2rem;"><use xlink:href="#{{ .icon }}"></use></svg>
-            </a>
-          {{ end }}
-        </div>
-      {{ end }}
       <span id="gblog-color-theme">
         <svg class="gblog-icon gblog_brightness_dark">
           <title>{{ i18n "button_toggle_dark" }}</title>
