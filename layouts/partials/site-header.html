@@ -5,11 +5,7 @@
     <div class="gblog-header__col-2 flex align-center justify-center ">
       <a class="gblog-header__link" rel="me" href="{{ .Site.Home.Permalink }}">
         <span class="gblog-brand flex align-center justify-center">
-          <img
-            class="gblog-brand__img"
-            src="{{ (default "brand.svg" .Site.Params.logo) | relURL }}"
-            alt=""
-          />
+          <span class="gblog-brand__emoji">🔧</span>
           <span class="gblog-brand__title">{{ .Site.Title }}</span>
         </span>
         {{ with .Site.Params.subtitle }}
@@ -19,18 +15,9 @@
     </div>
     <div class="gblog-header__col-3 flex justify-end align-center">
       <span id="gblog-color-theme">
-        <svg class="gblog-icon gblog_brightness_dark">
-          <title>{{ i18n "button_toggle_dark" }}</title>
-          <use xlink:href="#gblog_brightness_dark"></use>
-        </svg>
-        <svg class="gblog-icon gblog_brightness_light">
-          <title>{{ i18n "button_toggle_dark" }}</title>
-          <use xlink:href="#gblog_brightness_light"></use>
-        </svg>
-        <svg class="gblog-icon gblog_brightness_auto">
-          <title>{{ i18n "button_toggle_dark" }}</title>
-          <use xlink:href="#gblog_brightness_auto"></use>
-        </svg>
+        <span class="gblog-icon gblog_brightness_dark" title="{{ i18n "button_toggle_dark" }}">🌙</span>
+        <span class="gblog-icon gblog_brightness_light" title="{{ i18n "button_toggle_dark" }}">☀️</span>
+        <span class="gblog-icon gblog_brightness_auto" title="{{ i18n "button_toggle_dark" }}">🌓</span>
       </span>
     </div>
   </div>

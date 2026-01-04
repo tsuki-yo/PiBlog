@@ -10,6 +10,52 @@
     --header-background: #C51A4A !important; /* Raspberry Pi color for dark mode */
 }
 
+/* Brand emoji styling */
+.gblog-brand__emoji {
+    font-size: 2rem;
+    line-height: 1;
+    margin-right: 0.5rem;
+}
+
+/* Theme toggle emoji styling */
+#gblog-color-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#gblog-color-theme:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#gblog-color-theme .gblog-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    display: none !important;
+}
+
+/* Show correct icon based on color theme */
+:root:not([color-theme]) #gblog-color-theme .gblog_brightness_auto,
+html.color-toggle-auto #gblog-color-theme .gblog_brightness_auto {
+    display: flex !important;
+}
+
+:root[color-theme="light"] #gblog-color-theme .gblog_brightness_light,
+html.color-toggle-light #gblog-color-theme .gblog_brightness_light {
+    display: flex !important;
+}
+
+:root[color-theme="dark"] #gblog-color-theme .gblog_brightness_dark,
+html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
+    display: flex !important;
+}
+
 /* =============================================
    NAVBAR REDESIGN
    Layout: Social Icons (left) | Search (center) | # Tag Button (right)
@@ -244,6 +290,110 @@
    MOBILE RESPONSIVE
    ============================================= */
 @media screen and (max-width: 39rem) {
+    /* Mobile header layout */
+    .gblog-header {
+        padding: 0 1rem !important;
+        height: 3rem !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+    }
+
+    .gblog-header .container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 3rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .gblog-brand__subtitle {
+        display: none !important;
+    }
+
+    .gblog-header__col-1 {
+        display: none !important;
+    }
+
+    .gblog-header__col-2 {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        pointer-events: none !important;
+    }
+
+    .gblog-header__col-2 * {
+        pointer-events: auto !important;
+    }
+
+    .gblog-header__col-3 {
+        position: absolute !important;
+        right: 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .gblog-header__link,
+    .gblog-brand {
+        display: flex !important;
+        align-items: center !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        position: relative !important;
+    }
+
+    .gblog-brand__emoji {
+        position: absolute !important;
+        right: 100% !important;
+        margin-right: 0.5rem !important;
+    }
+
+    #gblog-color-theme {
+        width: 2rem !important;
+        height: 2rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .gblog-brand__img,
+    .gblog-brand__emoji {
+        font-size: 1.5rem !important;
+        line-height: 1 !important;
+    }
+
+    .gblog-brand__title {
+        font-size: 1.2rem !important;
+        line-height: 1 !important;
+    }
+
+    /* Reduce gap between navbar and first post */
+    .gblog-page {
+        padding-top: 0.5rem !important;
+        margin-top: 0 !important;
+    }
+
+    .gblog-post:first-child {
+        margin-top: 0 !important;
+        padding-top: 0.5rem !important;
+    }
+
+    /* Theme toggle icons - don't override display, let visibility rules handle it */
+    #gblog-color-theme .gblog-icon {
+        position: static !important;
+        transform: none !important;
+        font-size: 1rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
     .gblog-nav {
         gap: 0.5rem;
     }
@@ -307,15 +457,29 @@
     #gblog-color-theme .gblog-icon {
         width: 1.5rem;
         height: 1.5rem;
+        /* display is controlled by visibility rules above - don't override */
     }
 
-    /* Social icons black on mobile */
+    /* Social icons with transparent background like # button */
     .gblog-nav__social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
         color: #000000 !important;
+    }
+
+    .gblog-nav__social a:hover {
+        background: rgba(0, 0, 0, 0.15);
     }
 
     .gblog-nav__social .gblog-icon {
         fill: #000000 !important;
+        width: 1rem;
+        height: 1rem;
     }
 
     /* Search bar white background on mobile */
@@ -353,6 +517,21 @@
 
     :root[color-theme="dark"] body,
     :root[color-theme="dark"] .wrapper {
+        background-color: #1a1a2e !important;
+    }
+}
+
+/* Auto mode - follow system preference on mobile */
+@media screen and (max-width: 39rem) and (prefers-color-scheme: light) {
+    :root:not([color-theme]) body,
+    :root:not([color-theme]) .wrapper {
+        background-color: #ffffff !important;
+    }
+}
+
+@media screen and (max-width: 39rem) and (prefers-color-scheme: dark) {
+    :root:not([color-theme]) body,
+    :root:not([color-theme]) .wrapper {
         background-color: #1a1a2e !important;
     }
 }
