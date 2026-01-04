@@ -263,6 +263,15 @@
         z-index: 100;
         flex-direction: column !important;
         background: var(--navbar-background);
+        max-height: 0;
+        visibility: hidden;
+        overflow: hidden;
+    }
+
+    #menu-control:checked ~ .gblog-nav__list {
+        max-height: none !important;
+        visibility: visible !important;
+        overflow: visible !important;
     }
 
     .gblog-nav__list li {
