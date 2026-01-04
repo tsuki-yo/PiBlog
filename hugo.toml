@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = "Natsuki's Tech Blog"
 theme = 'geekblog'
 
+[params]
+  geekblogBackToTop = true
+
 [sitemap]
   changeFreq = 'daily'
   disable = false

@@ -1,0 +1,28 @@
+---
+header:
+  - name: Dev.to
+    icon: gblog_devto
+    ref: "https://dev.to/tsukiyo"
+    external: true
+  - name: GitHub
+    icon: gblog_github
+    ref: "https://github.com/tsuki-yo"
+    external: true
+  - name: LinkedIn
+    icon: gblog_linkedin
+    ref: "https://www.linkedin.com/in/natsuki-miyadi-787b27348/"
+    external: true
+
+footer:
+  - name: Dev.to
+    icon: gblog_devto
+    ref: "https://dev.to/tsukiyo"
+    external: true
+  - name: GitHub
+    icon: gblog_github
+    ref: "https://github.com/tsuki-yo"
+    external: true
+  - name: LinkedIn
+    icon: gblog_linkedin
+    ref: "https://www.linkedin.com/in/natsuki-miyadi-787b27348/"
+    external: true
