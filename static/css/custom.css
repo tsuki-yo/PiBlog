@@ -105,3 +105,74 @@
     }
 }
 
+/* Hide desktop-only elements on mobile */
+.hidden-desktop {
+    display: none !important;
+}
+
+/* Ensure navbar social icons are hidden on desktop */
+.gblog-nav__social {
+    display: none !important;
+}
+
+/* Mobile responsive fixes */
+@media screen and (max-width: 39rem) {
+    /* Show mobile-only elements */
+    .hidden-desktop {
+        display: flex !important;
+    }
+
+    /* Position navbar with social icons on left and hamburger on right */
+    .gblog-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        position: relative;
+    }
+
+    .gblog-nav__social {
+        display: flex !important;
+        order: 1;
+        flex: 0 0 auto;
+    }
+
+    .gblog-nav__control {
+        order: 2;
+        flex: 0 0 auto;
+        display: block !important;
+        position: static;
+    }
+
+    .gblog-nav__control label {
+        padding: 0.5rem !important;
+        cursor: pointer;
+    }
+
+    .gblog-nav__control svg.gblog-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .gblog-nav__control span {
+        display: none;
+    }
+
+    .gblog-nav__list {
+        order: 3;
+        width: 100%;
+    }
+
+    /* Fix footer items to display inline instead of stacked */
+    .gblog-footer__item {
+        width: auto !important;
+        margin-right: 0.5rem;
+    }
+
+    .gblog-footer__item--row {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
+

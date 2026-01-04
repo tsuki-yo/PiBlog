@@ -46,6 +46,15 @@
 </header>
 <nav class="gblog-nav">
   <input type="checkbox" id="menu-control" class="hidden" />
+  {{ if .Site.Data.menu.extra.header }}
+    <div class="gblog-nav__social flex align-center hidden-desktop" style="gap: 0.5rem;">
+      {{ range .Site.Data.menu.extra.header }}
+        <a href="{{ .ref }}" {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }} title="{{ .name }}" style="display: flex; align-items: center; color: inherit;">
+          <svg class="gblog-icon {{ .icon }}" style="width: 1.5rem; height: 1.5rem; fill: currentColor;"><use xlink:href="#{{ .icon }}"></use></svg>
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
   <div class="gblog-nav__control">
     <label for="menu-control" class="flex align-center justify-center">
       <svg class="gblog-icon gblog_menu"><use xlink:href="#gblog_menu"></use></svg>
