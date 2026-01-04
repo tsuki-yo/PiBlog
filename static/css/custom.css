@@ -618,28 +618,59 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
 }
 
 /* =============================================
-   POST LIST STYLING
+   POST LIST STYLING - Card Style
    ============================================= */
 
-/* Dotted line colors for post separators */
+/* Card style for posts */
+.gblog-post {
+    background: var(--body-background);
+    border: 1px solid var(--accent-color-lite);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    border-top: none !important;
+}
+
+.gblog-post:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Light mode card */
 :root[color-theme="light"] .gblog-post {
-    border-top-color: black !important;
+    background: #ffffff;
+    border-color: #e0e0e0;
 }
 
+/* Dark mode card */
 :root[color-theme="dark"] .gblog-post {
-    border-top-color: white !important;
+    background: #2a2a3e;
+    border-color: #3a3a4e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Auto mode - when no color-theme attribute is set */
+:root[color-theme="dark"] .gblog-post:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Auto mode */
 @media (prefers-color-scheme: light) {
     :root:not([color-theme]) .gblog-post {
-        border-top-color: black !important;
+        background: #ffffff;
+        border-color: #e0e0e0;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :root:not([color-theme]) .gblog-post {
-        border-top-color: white !important;
+        background: #2a2a3e;
+        border-color: #3a3a4e;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    :root:not([color-theme]) .gblog-post:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -736,6 +767,33 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
 }
 
 /* =============================================
+   CODE BLOCKS - Prevent overflow
+   ============================================= */
+
+pre {
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+pre code {
+    display: block;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.gblog-markdown pre,
+.gblog-markdown code {
+    max-width: 100%;
+}
+
+.gblog-markdown pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* =============================================
    SINGLE POST PAGE - Horizontal Metadata
    ============================================= */
 
@@ -765,6 +823,16 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
    MOBILE RESPONSIVE
    ============================================= */
 @media screen and (max-width: 39rem) {
+    /* Remove card style on single article page only */
+    .gblog-post:has(> section.gblog-markdown) {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+        transform: none !important;
+    }
+
     /* Stack cover image and content vertically on mobile */
     .gblog-post.has-cover .gblog-post__wrapper {
         flex-direction: column;

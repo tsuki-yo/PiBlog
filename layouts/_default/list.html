@@ -6,11 +6,12 @@
 
   {{ $paginator := .Paginate $pages }}
   {{ range $paginator.Pages }}
+    {{ $page := . }}
     <article class="gblog-post {{ if .Params.cover_image }}has-cover{{ end }}">
       <div class="gblog-post__wrapper">
         {{ with .Params.cover_image }}
-          <a href="{{ $.RelPermalink }}" class="gblog-post__cover">
-            <img src="{{ . }}" alt="{{ partial "utils/title" $ }}" loading="lazy" />
+          <a href="{{ $page.RelPermalink }}" class="gblog-post__cover">
+            <img src="{{ . }}" alt="{{ partial "utils/title" $page }}" loading="lazy" />
           </a>
         {{ end }}
 
