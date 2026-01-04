@@ -1,15 +1,6 @@
 <header class="gblog-header">
   <div class="container flex flex-wrap">
-    <div class="gblog-header__col-1 flex justify-start hidden-mobile">
-      {{ if .Site.Data.menu.extra.header }}
-        <div class="gblog-header__social flex align-center" style="gap: 0.75rem;">
-          {{ range .Site.Data.menu.extra.header }}
-            <a href="{{ .ref }}" {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }} title="{{ .name }}" style="display: flex; align-items: center; color: inherit;">
-              <svg class="gblog-icon {{ .icon }}" style="width: 2rem; height: 2rem; fill: currentColor;"><use xlink:href="#{{ .icon }}"></use></svg>
-            </a>
-          {{ end }}
-        </div>
-      {{ end }}
+    <div class="gblog-header__col-1 flex justify-start">
     </div>
     <div class="gblog-header__col-2 flex align-center justify-center ">
       <a class="gblog-header__link" rel="me" href="{{ .Site.Home.Permalink }}">
@@ -44,41 +35,60 @@
     </div>
   </div>
 </header>
-<nav class="gblog-nav">
-  <input type="checkbox" id="menu-control" class="hidden" />
-  {{ if .Site.Data.menu.extra.header }}
-    <div class="gblog-nav__social flex align-center hidden-desktop" style="gap: 0.5rem;">
+<nav class="gblog-nav" id="main-nav">
+  <!-- Left: Social Icons -->
+  <div class="gblog-nav__social flex align-center">
+    {{ if .Site.Data.menu.extra.header }}
       {{ range .Site.Data.menu.extra.header }}
-        <a href="{{ .ref }}" {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }} title="{{ .name }}" style="display: flex; align-items: center; color: inherit;">
-          <svg class="gblog-icon {{ .icon }}" style="width: 1.5rem; height: 1.5rem; fill: currentColor;"><use xlink:href="#{{ .icon }}"></use></svg>
+        <a href="{{ .ref }}" {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }} title="{{ .name }}">
+          <svg class="gblog-icon {{ .icon }}"><use xlink:href="#{{ .icon }}"></use></svg>
         </a>
       {{ end }}
-    </div>
-  {{ end }}
-  <div class="gblog-nav__control">
-    <label for="menu-control" class="flex align-center justify-center">
-      <span>Tags</span>
-      <svg class="gblog-icon gblog_menu"><use xlink:href="#gblog_menu"></use></svg>
-      <svg class="gblog-icon gblog_clear"><use xlink:href="#gblog_clear"></use></svg>
-    </label>
-  </div>
-  <ul class="gblog-nav__list container flex flex-wrap justify-center menu-content">
-    {{ $currentPage := .RelPermalink }}
-    {{ if default true .Site.Params.geekblogTagsToMenu }}
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-        {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-          <li>
-            <a
-              class="gblog-nav__entry{{ if eq $currentPage .RelPermalink }}
-                {{ printf " %s" "is-active" }}
-              {{ end }}"
-              href="{{ .RelPermalink }}"
-            >
-              {{ partial "utils/title" . }}
-            </a>
-          </li>
-        {{ end }}
-      {{ end }}
     {{ end }}
-  </ul>
+  </div>
+
+  <!-- Center: Search -->
+  <div class="gblog-nav__search">
+    <form action="{{ "search/" | relURL }}" method="get" class="gblog-search-form">
+      <button type="button" class="gblog-search__toggle" aria-label="Toggle search">
+        <svg class="gblog-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+      <input type="search" name="q" class="gblog-search__input" placeholder="Search posts..." aria-label="Search">
+    </form>
+  </div>
+
+  <!-- Right: Tag Button -->
+  <button class="gblog-nav__tag-btn" id="tag-menu-btn" aria-expanded="false" aria-haspopup="true" aria-label="Browse tags">
+    <span class="gblog-nav__tag-icon">#</span>
+  </button>
+
+  <!-- Tag Menu Dropdown -->
+  <div class="gblog-tag-menu" id="tag-menu" role="menu" aria-hidden="true">
+    <div class="gblog-tag-menu__content">
+      <div class="gblog-tag-menu__header">
+        <button class="gblog-tag-menu__action" data-action="all">All</button>
+        <button class="gblog-tag-menu__action" data-action="clear">Clear</button>
+      </div>
+      <div class="gblog-tag-menu__tags">
+        {{ $currentPage := .RelPermalink }}
+        {{ if default true .Site.Params.geekblogTagsToMenu }}
+          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+              <a
+                class="gblog-tag-pill{{ if eq $currentPage .RelPermalink }} is-active{{ end }}"
+                href="{{ .RelPermalink }}"
+                role="menuitem"
+                data-tag="{{ $name }}"
+              >
+                {{ partial "utils/title" . }}
+              </a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
 </nav>

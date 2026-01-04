@@ -5,10 +5,20 @@ theme = 'geekblog'
 
 [params]
   geekblogBackToTop = true
+  mainSections = ['posts']
 
 [sitemap]
   changeFreq = 'daily'
   disable = false
   filename = 'sitemap.xml'
   priority = -1
+
+# Output formats for search index
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[outputFormats.JSON]
+  mediaType = 'application/json'
+  baseName = 'index'
+  isPlainText = true
 
