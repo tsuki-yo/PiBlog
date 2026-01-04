@@ -1,5 +1,6 @@
 /**
  * Navbar functionality for PiBlog
+ * - Hamburger menu (mobile)
  * - Tag menu toggle with # button
  * - Mobile search expand/collapse
  * - Click outside / Esc to close
@@ -10,12 +11,24 @@
     'use strict';
 
     // DOM Elements
+    const hamburger = document.getElementById('nav-toggle');
+    const mainNav = document.getElementById('main-nav');
     const tagMenuBtn = document.getElementById('tag-menu-btn');
     const tagMenu = document.getElementById('tag-menu');
     const searchContainer = document.querySelector('.gblog-nav__search');
     const searchToggle = document.querySelector('.gblog-search__toggle');
     const searchInput = document.querySelector('.gblog-search__input');
     const actionButtons = document.querySelectorAll('.gblog-tag-menu__action');
+
+    // Hamburger menu toggle (only close via hamburger button)
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', function() {
+            const isOpen = !mainNav.classList.contains('is-open');
+            mainNav.classList.toggle('is-open', isOpen);
+            hamburger.classList.toggle('is-open', isOpen);
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+        });
+    }
 
     if (!tagMenuBtn || !tagMenu) return;
 

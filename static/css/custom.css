@@ -404,7 +404,7 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
     }
 
     .gblog-post:first-child {
-        margin-top: 0 !important;
+        margin-top: 1rem !important;
         padding-top: 0.5rem !important;
     }
 
@@ -867,5 +867,58 @@ pre code {
         display: inline-flex !important;
         align-items: center;
         gap: 0.25rem;
+    }
+}
+
+/* =============================================
+   HAMBURGER MENU - Mobile Only
+   ============================================= */
+
+/* Hide hamburger on desktop */
+.gblog-hamburger {
+    display: none;
+}
+
+@media screen and (max-width: 39rem) {
+    /* Show hamburger on mobile */
+    .gblog-hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        padding: 0.25rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        gap: 4px;
+    }
+
+    .gblog-hamburger__line {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: white;
+        border-radius: 1px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* Hamburger X animation when open */
+    .gblog-hamburger.is-open .gblog-hamburger__line:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .gblog-hamburger.is-open .gblog-hamburger__line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .gblog-hamburger.is-open .gblog-hamburger__line:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Hide navbar by default on mobile, show when .is-open */
+    .gblog-nav:not(.is-open) {
+        display: none !important;
     }
 }
