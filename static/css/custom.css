@@ -116,9 +116,15 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
 }
 
 .gblog-nav__social .gblog-icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     fill: currentColor;
+}
+
+/* Make dev.to icon larger for readability */
+.gblog-nav__social .gblog_devto {
+    width: 1.8rem;
+    height: 1.8rem;
 }
 
 /* Search - Center (truly centered using absolute positioning) */
@@ -495,8 +501,13 @@ html.color-toggle-dark #gblog-color-theme .gblog_brightness_dark {
 
     .gblog-nav__social .gblog-icon {
         fill: #000000 !important;
-        width: 1rem;
-        height: 1rem;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .gblog-nav__social .gblog_devto {
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     /* Search bar always white on mobile */
