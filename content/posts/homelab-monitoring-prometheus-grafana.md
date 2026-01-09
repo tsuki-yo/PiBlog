@@ -50,30 +50,21 @@ I chose the classic observability stack that's proven itself in production envir
 
 Why this stack? It's open-source, widely adopted, handles homelab scale easily, and doesn't require expensive licensing.
 
-```
-┌─────────────┐  ┌─────────────┐
-│1.Node Export│  │2. cAdvisor  │
-│ Host Metrics│  │ Containers  │
-└──────┬──────┘  └──────┬──────┘
-       ▲                ▲
-       │  /metrics      │  /metrics
-       │ Scrapes (HTTP) │
-       └────────┬───────┘
-                │
-         ┌──────┴──────┐
-         │3.Prometheus │
-         │ Time-Series │
-         └──┬────────┬──┘
-            │        │
-     Alerts │        │ Query
-            │        │ (PromQL)
-            ▼        ▲
-    ┌────────────┐   │
-    │5.Alertmgr  │   │    ┌─────────┐
-    │   Email    │   └────│4.Grafana│
-    └────────────┘        │   UI    │
-                          └─────────┘
-```
+{{< mermaid class="text-center" >}}
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryTextColor': '#000', 'nodeTextColor': '#000', 'textColor': '#000', 'nodeBorder': '#333', 'mainBkg': '#fff'}}}%%
+flowchart TD
+
+    NE["1.Node Exporter<br/>Host Metrics"]
+    CA["2.cAdvisor"]
+    PR["3.Prometheus"]
+    AM["5.Alertmanager"]
+    GR["4.Grafana"]
+    
+    PR -->|/metrics| NE & CA
+    PR -->|Alerts| AM
+    GR -->|Query PromQL| PR
+    
+{{< /mermaid >}}
 
 ## 3. Architecture
 
@@ -86,57 +77,38 @@ My setup monitors two hosts:
 - **Raspberry Pi 5** (192.168.1.201): Running the monitoring stack itself
 - **N305 Server** (192.168.1.50): Main server running 29 containers (Immich, Bitwarden, Jellyfin, etc.)
 
-```
-┌────────────────────────────────────────────┐
-│ Raspberry Pi 5 (192.168.1.201)             │
-│                                            │
-│ ┌────────────────────────────────────────┐ │
-│ │ LXC                                    │ │
-│ │                                        │ │
-│ │ ┌────────┐ ┌──────────┐ ┌──────────────┐│
-│ │ │Grafana │ │Prometheus│ │ Alertmanager ││
-│ │ │ :3000  │ │  :9090   │ │    :9093     ││
-│ │ └────────┘ └──────────┘ └──────────────┘│
-│ │                                        │ │
-│ │ ┌──────────┐                           │ │
-│ │ │ cAdvisor │                           │ │
-│ │ │  :8080   │                           │ │
-│ │ └──────────┘                           │ │
-│ └────────────────────────────────────────┘ │
-│                                            │
-│ ┌──────────────────────────────────────┐   │
-│ │ Node Exporter :9100 (native on host) │   │
-│ └──────────────────────────────────────┘   │
-└──────────────┬─────────────────────────────┘
-               │
-               │ Scrapes over LAN
-               ▼
-        ┌──────────────────────┐
-        │ N305                 │
-        │ 192.168.1.50         │
-        │                      │
-        │ ┌──────────────────┐ │
-        │ │ LXC              │ │
-        │ │                  │ │
-        │ │ ┌──────────────┐ │ │
-        │ │ │ Immich       │ │ │
-        │ │ │ Bitwarden    │ │ │
-        │ │ │ Jellyfin     │ │ │
-        │ │ │ + 26 others  │ │ │
-        │ │ └──────────────┘ │ │
-        │ │                  │ │
-        │ │ ┌──────────────┐ │ │
-        │ │ │cAdvisor :8080│ │ │
-        │ │ └──────────────┘ │ │
-        │ └──────────────────┘ │
-        │                      │
-        │ ┌──────────────────┐ │
-        │ │ Node Exporter    │ │
-        │ │ :9100            │ │
-        │ │ (native on host) │ │
-        │ └──────────────────┘ │
-        └──────────────────────┘
-```
+{{< mermaid class="text-center" >}}
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryTextColor': '#000', 'nodeTextColor': '#000', 'textColor': '#000', 'nodeBorder': '#333', 'mainBkg': '#fff'}}}%%
+flowchart TB
+    subgraph RPI["Pi5 (192.168.1.201)"]
+        subgraph LXC1["LXC"]
+            GR["Grafana :3000"]
+            PR["Prometheus :9090"]
+            AM["Alertmanager :9093"]
+            CA1["cAdvisor :8080"]
+        end
+        NE1["Node Exporter :9100"]
+    end
+
+    subgraph N305["N305 (192.168.1.50)"]
+        subgraph LXC2["LXC"]
+            APPS["26 containers"]
+            CA2["cAdvisor :8080"]
+        end
+        NE2["Node Exporter :9100"]
+    end
+
+    PR -->|/metrics| NE1 & CA1 & CA2 & NE2
+    PR -->|Alerts| AM
+    GR -->|Query PromQL| PR
+    
+
+    %% Styles for clarity
+    style RPI fill:#f5f5f5,stroke:#333
+    style LXC1 fill:#fff,stroke:#333
+    style N305 fill:#f5f5f5,stroke:#333
+    style LXC2 fill:#fff,stroke:#333
+{{< /mermaid >}}
 
 ## 4. Docker Compose Setup
 
