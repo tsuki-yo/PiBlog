@@ -9,11 +9,13 @@ cover_image = "/images/dashboard-cover.png"
 
 ## TL;DR
 
-When you're running a homelab with dozens of containers and services, things will eventually break. The question isn't *if* something will fail, but *when* - and whether you'll know about it before your users do.
+When you're running a homelab with dozens of containers and services, things will eventually break. The question isn't _if_ something will fail, but _when_ - and whether you'll know about it before your users do.
 
 This post walks through building a production-grade monitoring stack using Prometheus + Grafana that monitors 37 containers across 2 hosts, with automatic email alerting and comprehensive dashboards. You'll get visibility into CPU, memory, disk, network, container metrics, and even ZFS storage - all with 30 days of historical data.
 
-> **Full Configuration Available**: All Docker Compose files, Prometheus configs, alert rules, and Grafana datasources from this guide are available on [GitHub](https://github.com/tsuki-yo/homelab-monitoring). Clone and customize for your homelab.
+Full Configuration is available on [GitHub](https://github.com/tsuki-yo/homelab-monitoring). Clone and customize for your homelab.
+
+> 📦 This monitoring stack runs on my DeskPi 12U homelab in a 10sqm Tokyo apartment. See the full setup: [Small But Mighty Homelab: DeskPi 12U Running 20+ Services](https://dev.to/tsukiyo/small-but-mighty-homelab-deskpi-12u-running-20-services-4l7f).
 
 **Contents:**
 1. [Why Monitor Your Homelab?](#1-why-monitor-your-homelab)
@@ -50,7 +52,7 @@ I chose the classic observability stack that's proven itself in production envir
 
 Why this stack? It's open-source, widely adopted, handles homelab scale easily, and doesn't require expensive licensing.
 
-{{< mermaid class="text-center" >}}
+{{< mermaid class="text-center" style="max-width: 800px; margin: 0 auto;" >}}
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryTextColor': '#000', 'nodeTextColor': '#000', 'textColor': '#000', 'nodeBorder': '#333', 'mainBkg': '#fff'}}}%%
 flowchart TD
 
@@ -77,7 +79,7 @@ My setup monitors two hosts:
 - **Raspberry Pi 5** (192.168.1.201): Running the monitoring stack itself
 - **N305 Server** (192.168.1.50): Main server running 29 containers (Immich, Bitwarden, Jellyfin, etc.)
 
-{{< mermaid class="text-center" >}}
+{{< mermaid class="text-center" style="max-width: 1200px; margin: 0 auto;" >}}
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryTextColor': '#000', 'nodeTextColor': '#000', 'textColor': '#000', 'nodeBorder': '#333', 'mainBkg': '#fff'}}}%%
 flowchart TB
     subgraph RPI["Pi5 (192.168.1.201)"]

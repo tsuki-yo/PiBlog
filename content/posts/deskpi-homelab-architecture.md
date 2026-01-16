@@ -13,15 +13,19 @@ You don't need a server room to run a powerful homelab. With just a few host mac
 
 This post walks through my homelab architecture - how I got here, how it's organized, and what it can do.
 
+> 📚 **Related guides:**
+> - [Running Nginx as a Reverse Proxy on Your OpenWRT Router](/posts/nginx-reverse-proxy-openwrt/)
+> - [End-to-End Monitoring Explained for Homelabs: Prometheus, Grafana & Alertmanager](/posts/homelab-monitoring-prometheus-grafana/)
+
 **Contents:**
-1. Evolution
-2. Architecture Overview
-3. Physical Foundation
-4. Network Infrastructure
-5. Compute Hosts & Devices
-6. Services & Applications
-7. Cost Breakdown
-8. Lessons Learned
+1. [Evolution](#1-evolution)
+2. [Architecture Overview](#2-architecture-overview)
+3. [Physical Foundation](#3-physical-foundation)
+4. [Network Infrastructure](#4-network-infrastructure)
+5. [Compute Hosts & Devices](#5-compute-hosts--devices)
+6. [Services & Applications](#6-services--applications)
+7. [Cost Breakdown](#7-cost-breakdown)
+8. [Lessons Learned](#8-lessons-learned)
 
 ## 1. Evolution
 
@@ -159,7 +163,7 @@ I considered Synology/QNAP NAS devices, used enterprise mini PCs, and Intel NUCs
 ### Smart Home (Pi 4)
 - Home Assistant - controlling Hue lights, SwitchBot devices, and automations
 
-### Monitoring Stack (Pi 5)
+### [Monitoring Stack](/posts/homelab-monitoring-prometheus-grafana/) (Pi 5)
 - Grafana - dashboards and visualization
 - Prometheus - metrics collection
 - Alertmanager - alert routing and notifications
@@ -189,7 +193,7 @@ I considered Synology/QNAP NAS devices, used enterprise mini PCs, and Intel NUCs
 - Local voice control via Home Assistant - no cloud required ([see my previous post](/posts/voicellm/))
 
 ### Network Services (OpenWrt ONE)
-- Nginx Reverse Proxy - local service names for easy access, no more remembering IP:port combinations
+- [Nginx Reverse Proxy](/posts/nginx-reverse-proxy-openwrt/) - local service names for easy access, no more remembering IP:port combinations
 - WireGuard VPN - secure remote access to the homelab when away from home
 
 ## 7. Cost Breakdown
