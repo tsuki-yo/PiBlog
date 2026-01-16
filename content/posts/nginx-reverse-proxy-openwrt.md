@@ -1,53 +1,53 @@
 +++
-title = 'Running Nginx as a Reverse Proxy on Your OpenWRT Router'
+title = 'Running Nginx as a Reverse Proxy on Your OpenWrt Router'
 date = 2026-01-16T12:00:00+09:00
 draft = false
 tags = ['homelab', 'openwrt', 'nginx', 'networking', 'reverse-proxy', 'self-hosting']
-description = "Why running nginx directly on your OpenWRT router is the ideal setup for homelabs. Covers nginx basics, OpenWRT integration with UCI, wildcard SSL certificates, and managing 25+ services with clean subdomains."
+description = "Why running nginx directly on your OpenWrt router is the ideal setup for homelabs. Covers nginx basics, OpenWrt integration with UCI, wildcard SSL certificates, and managing 25+ services with clean subdomains."
 cover_image = "/images/nginx-homer-dashboard.png"
 +++
 
 ## TL;DR
 
-Your router already handles all network traffic. Why not let it handle reverse proxying too? Running nginx on OpenWRT eliminates an extra hop, simplifies your network architecture, and gives you a single point of SSL termination. This post covers why OpenWRT is the right choice, what nginx actually does, and how to configure it using OpenWRT's UCI system to proxy 25+ homelab services with clean subdomain URLs.
+Your router already handles all network traffic. Why not let it handle reverse proxying too? Running nginx on OpenWrt eliminates an extra hop, simplifies your network architecture, and gives you a single point of SSL termination. This post covers why OpenWrt is the right choice, what nginx actually does, and how to configure it using OpenWrt's UCI system to proxy 25+ homelab services with clean subdomain URLs.
 
 > 📦 This nginx setup runs on my DeskPi 12U homelab in a 10sqm Tokyo apartment. See the full setup: [Small But Mighty Homelab: DeskPi 12U Running 20+ Services](https://dev.to/tsukiyo/small-but-mighty-homelab-deskpi-12u-running-20-services-4l7f).
 
 **Contents:**
-1. [Why OpenWRT?](#1-why-openwrt)
+1. [Why OpenWrt?](#1-why-openwrt)
 2. [What is Nginx and Why Do You Need It?](#2-what-is-nginx-and-why-do-you-need-it)
 3. [Why Run Nginx on Your Router?](#3-why-run-nginx-on-your-router)
-4. [Installing Nginx on OpenWRT](#4-installing-nginx-on-openwrt)
-5. [Understanding OpenWRT's UCI Configuration](#5-understanding-openwrts-uci-configuration)
+4. [Installing Nginx on OpenWrt](#4-installing-nginx-on-openwrt)
+5. [Understanding OpenWrt's UCI Configuration](#5-understanding-openwrts-uci-configuration)
 6. [Setting Up Wildcard SSL Certificates](#6-setting-up-wildcard-ssl-certificates)
 7. [Adding Your First Service](#7-adding-your-first-service)
 8. [DNS Configuration with dnsmasq](#8-dns-configuration-with-dnsmasq)
 9. [Real Example: 25 Services Proxied Through One Router](#9-real-example-25-services-proxied-through-one-router)
 10. [Tips and Considerations](#10-tips-and-considerations)
 
-## 1. Why OpenWRT?
+## 1. Why OpenWrt?
 
-Before diving into nginx, let's talk about why OpenWRT is the foundation that makes this setup possible.
+Before diving into nginx, let's talk about why OpenWrt is the foundation that makes this setup possible.
 
-**OpenWRT** is a Linux distribution designed for embedded devices, primarily routers. Unlike the locked-down firmware that comes with consumer routers, OpenWRT gives you a full Linux system with:
+**OpenWrt** is a Linux distribution designed for embedded devices, primarily routers. Unlike the locked-down firmware that comes with consumer routers, OpenWrt gives you a full Linux system with:
 
 - **Package management**: Install what you need, remove what you don't
 - **SSH access**: Full command-line control over your network
 - **Customizable firewall**: iptables/nftables with granular control
 - **Real services**: Run nginx, wireguard (for remote access to your homelab), adblock, and more natively
 
-Most consumer router firmware is a black box. You get a web UI with limited options and no way to extend functionality. OpenWRT turns your router into a proper Linux server that happens to also route packets.
+Most consumer router firmware is a black box. You get a web UI with limited options and no way to extend functionality. OpenWrt turns your router into a proper Linux server that happens to also route packets.
 
 ### Hardware Matters
 
-Not all routers can run OpenWRT well. You need:
+Not all routers can run OpenWrt well. You need:
 - **Sufficient RAM**: 256MB minimum, 512MB+ recommended for nginx
 - **Storage**: Internal flash or USB storage for configs
 - **CPU**: Modern ARM or MIPS processors handle nginx easily
 
-Check the [OpenWRT Table of Hardware](https://openwrt.org/toh/start) to see if your router is supported.
+Check the [OpenWrt Table of Hardware](https://openwrt.org/toh/start) to see if your router is supported.
 
-I'm running the **OpenWRT One** - a router specifically designed for OpenWRT with 1GB RAM and 256MB NAND storage. It runs nginx with 25+ reverse proxy configurations without breaking a sweat.
+I'm running the **OpenWrt One** - a router specifically designed for OpenWrt with 1GB RAM and 256MB NAND storage. It runs nginx with 25+ reverse proxy configurations without breaking a sweat.
 
 ## 2. What is Nginx and Why Do You Need It?
 
@@ -77,7 +77,7 @@ With nginx as a reverse proxy:
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryTextColor': '#000', 'nodeTextColor': '#000', 'textColor': '#000', 'nodeBorder': '#333', 'mainBkg': '#fff'}}}%%
 flowchart LR
     Client["Client Browser"]
-    Router["OpenWRT Router<br/>nginx :443"]
+    Router["OpenWrt Router<br/>nginx :443"]
     Backend["Backend Service<br/>Grafana :3000"]
 
     Client -->|HTTPS request| Router
@@ -132,7 +132,7 @@ Your router is the one device that's always running. If it's down, you have no n
 
 ### Resource Efficiency
 
-Modern routers have more than enough power for reverse proxying. Nginx is extremely lightweight - it was designed to handle thousands of concurrent connections on minimal hardware. My OpenWRT One barely notices the 25 proxy configurations:
+Modern routers have more than enough power for reverse proxying. Nginx is extremely lightweight - it was designed to handle thousands of concurrent connections on minimal hardware. My OpenWrt One barely notices the 25 proxy configurations:
 
 ```
               total        used        free      shared  buff/cache   available
@@ -141,7 +141,7 @@ Mem:        1011248      163144      241180      505676      606924      291924
 
 Less than 200MB used with nginx, dnsmasq, and all other services running.
 
-## 4. Installing Nginx on OpenWRT
+## 4. Installing Nginx on OpenWrt
 
 SSH into your router and install nginx:
 
@@ -166,11 +166,11 @@ nginx -v
 # nginx version: nginx/1.26.1 (x86_64-pc-linux-gnu)
 ```
 
-## 5. Understanding OpenWRT's UCI Configuration
+## 5. Understanding OpenWrt's UCI Configuration
 
-OpenWRT uses **UCI** (Unified Configuration Interface) to manage all system configuration, including nginx. Instead of editing nginx config files directly, you define settings through UCI and OpenWRT generates the actual nginx config at `/var/lib/nginx/uci.conf` on each restart.
+OpenWrt uses **UCI** (Unified Configuration Interface) to manage all system configuration, including nginx. Instead of editing nginx config files directly, you define settings through UCI and OpenWrt generates the actual nginx config at `/var/lib/nginx/uci.conf` on each restart.
 
-Nginx configuration on OpenWRT has two parts:
+Nginx configuration on OpenWrt has two parts:
 
 1. **Server blocks** (via UCI) - Define which subdomain to listen for and which SSL certificate to use
 2. **Location files** (plain nginx config) - Define where to proxy the traffic
@@ -313,7 +313,7 @@ nginx -t
 
 ## 8. DNS Configuration with dnsmasq
 
-For subdomains to resolve to your router, configure dnsmasq (OpenWRT's built-in DNS server).
+For subdomains to resolve to your router, configure dnsmasq (OpenWrt's built-in DNS server).
 
 ### Wildcard DNS Entry
 
@@ -344,7 +344,7 @@ nslookup anything.raspberrypi.home
 
 ## 9. Real Example: 25 Services Proxied Through One Router
 
-Here's my actual setup - services running across Raspberry Pis, an N305 mini PC, and other devices, all proxied through the OpenWRT One. Every service accessible via clean subdomain URLs with HTTPS:
+Here's my actual setup - services running across Raspberry Pis, an N305 mini PC, and other devices, all proxied through the OpenWrt One. Every service accessible via clean subdomain URLs with HTTPS:
 
 ![Homer dashboard with all services accessible via subdomains](/images/nginx-homer-dashboard.png)
 
@@ -372,7 +372,7 @@ Every service is accessed through `https://servicename.raspberrypi.home` on port
 
 ### Logging
 
-OpenWRT centralizes all logs through `logread`. To view nginx logs:
+OpenWrt centralizes all logs through `logread`. To view nginx logs:
 
 ```bash
 logread | grep nginx
@@ -405,13 +405,13 @@ Without this, Grafana fails to load its assets through the proxy. Check your ser
 
 ## What's Next
 
-This post covered local access to your homelab services. In an upcoming post, I'll cover remote access - setting up WireGuard on OpenWRT to securely reach your services from anywhere.
+This post covered local access to your homelab services. In an upcoming post, I'll cover remote access - setting up WireGuard on OpenWrt to securely reach your services from anywhere.
 
 ## Conclusion
 
-Running nginx on your OpenWRT router leverages hardware you already have running 24/7. It eliminates network hops, centralizes configuration with DNS, and provides a clean subdomain-based access pattern for all your services.
+Running nginx on your OpenWrt router leverages hardware you already have running 24/7. It eliminates network hops, centralizes configuration with DNS, and provides a clean subdomain-based access pattern for all your services.
 
-The combination of OpenWRT's UCI system and nginx's flexibility creates a maintainable setup that scales from a handful of services to dozens. My 25-service configuration runs on minimal resources and has been rock solid.
+The combination of OpenWrt's UCI system and nginx's flexibility creates a maintainable setup that scales from a handful of services to dozens. My 25-service configuration runs on minimal resources and has been rock solid.
 
 Start with one or two services, get comfortable with the UCI workflow, and expand from there. Your router is more capable than you might think.
 
